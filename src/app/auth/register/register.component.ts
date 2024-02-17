@@ -48,7 +48,7 @@ onRegister()
           if(emaill==this.userDetails[i]['email'])
           {
               this.duplicateMail=true;
-              this._notify.warn("email is already existing try different")         
+              this._notify.warn("email is already existing try different")
               break;
           }    
         }
