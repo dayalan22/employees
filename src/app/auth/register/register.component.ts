@@ -58,8 +58,8 @@ onRegister()
         this._notify.success("Registered Successfully")      
         const users =this.registerForm.value;
         this._service.saveUsers(users as Authmodel).subscribe()
-        this.registerForm.reset();  
-        this.route.navigate([('/login')])          
+        this.registerForm.reset();
+        setTimeout(()=>{this.route.navigate([('/login')])},1000)             
       }          
     }
   }  

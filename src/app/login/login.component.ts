@@ -25,7 +25,6 @@ export class LoginComponent{
   
   constructor(private route : Router,public _notify : NotificationService, private _service : AuthserviceService)
   {
-    window.location.reload();
     this._service.getUsers().subscribe(data=>{this.userDetails=data});
     console.log(this.userDetails);
   }
