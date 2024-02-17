@@ -1,0 +1,30 @@
+::ng-deep .mdc-text-field:not(.mdc-text-field-disabled) .mdc-floating-label{
+    color:red !important;
+}
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--outlined){
+    background-color:transparent !important;
+}
+  
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disables) .mdc-line-ripple::before{
+    border-bottom-color:black !important;
+}
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disables) .mdc-line-ripple::after{
+      border-bottom-color:black !important;  
+}
+      
+::ng-deep .mat-mdc-dialog-container{
+    --mdc-dialog-container-color : ivory;
+}
+mat-form-field{
+    width: 100%;
+}
+h1{
+    text-align: center;
+    
+}
+
+::ng-deep .custom-notification1{
+    --mdc-snackbar-container-color:green;
+    --mdc-snackbar-supporting-text-color:white;
+  }
+  

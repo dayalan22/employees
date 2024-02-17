@@ -1,0 +1,50 @@
+<div class="mat-elevation-z5">
+    <mat-toolbar style="height: 50px; background-color:#474646" >
+        <span>Employee Table</span>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+    <div class="search-div">
+        <mat-toolbar style="height: 80px;background-color: white;">
+            <mat-form-field class="search-form-field"  style="margin-top:15px; ">
+                <mat-label>search</mat-label>   
+                <input style="color: black;"  matInput  autocomplete="off" placeholder="search" [(ngModel)]="value" (keyup)="filterItems()">
+                <button matSuffix mat-icon-button aria-label="Clear" (click)="clearAll()" *ngIf="value" color="warn"><mat-icon >clear</mat-icon></button>
+            </mat-form-field>  
+            <span class="example-spacer"></span>
+            <button mat-raised-button style="background-color:crimson;" routerLink="/create">Add Employee</button>
+        </mat-toolbar>
+    </div>
+    <mat-table [dataSource]="employeeDetails" matSort > 
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+            <mat-cell *matCellDef="let i">{{i.id}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+            <mat-cell *matCellDef="let i">{{i.name}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+            <mat-cell *matCellDef="let i">{{i.email}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="phone">
+            <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
+            <mat-cell *matCellDef="let i">{{i.phone}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dob">
+            <mat-header-cell *matHeaderCellDef>DOB</mat-header-cell>
+            <mat-cell *matCellDef="let i">{{i.dob|date}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button color="accent" title="Edit" (click)="onEdit(row)"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button color="warn" title="Delete" (click)="onDelete(row)"><mat-icon>delete</mat-icon></button>
+            </mat-cell>             
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row;columns : displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[2,4,5,10,100]" [pageSize]="5" showFirstLastButtons color="warn" style="background-color: #474646">
+    </mat-paginator>
+</div>

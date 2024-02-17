@@ -1,0 +1,47 @@
+<form [formGroup]="editForm"> 
+  <h1 mat-dialog-title style="color: black;">Edit Employee Details</h1>
+  <div mat-dialog-content>
+    
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput  autocomplete="off" formControlName="nameControl" style="color:black">
+      <mat-error *ngIf="editForm.controls['nameControl'].errors?.['required']" style="color: red;">should't be empty</mat-error>
+      <mat-error *ngIf="editForm.controls['nameControl'].errors?.['pattern']" style="color: red;">enter valid name</mat-error>
+      <span *ngIf="duplicateName" style="font-size: small;color: red;">name is already existing</span>
+    </mat-form-field><br>
+    
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput  autocomplete="off" formControlName="emailControl" style="color:black">
+      <mat-error *ngIf="editForm.controls['emailControl'].errors?.['required']" style="color: red;">should't be empty</mat-error>
+      <mat-error *ngIf="editForm.controls['emailControl'].errors?.['pattern']" style="color: red;">enter valid email</mat-error>
+      <span *ngIf="duplicateMail" style="font-size: small;color: red;">email is already existing</span>
+    </mat-form-field><br>
+    
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input matInput autocomplete="off" formControlName="phoneControl" style="color:black">
+      <mat-error *ngIf="editForm.controls['phoneControl'].errors?.['required']">should't be empty</mat-error>
+      <mat-error *ngIf="editForm.controls['phoneControl'].errors?.['pattern']">enter numbers only</mat-error>   
+      <mat-error *ngIf="editForm.controls['phoneControl'].errors?.['minlength']">enter more than 5 characters</mat-error>
+      <mat-error *ngIf="editForm.controls['phoneControl'].errors?.['maxlength']">enter less than 11 characters</mat-error>
+    </mat-form-field><br>
+  
+    <mat-form-field>
+      <mat-label>DOB</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dobControl" style="color:black">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker" style="color: black;">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="editForm.controls['dobControl'].errors?.['required']">enter valid date</mat-error>
+    </mat-form-field>
+  
+  </div>
+  
+  <div mat-dialog-actions>
+      <button mat-raised-button (click)="update()" [disabled]="!editForm.valid" style="background-color:darkcyan;">Update</button>
+      <button mat-raised-button style="background-color:crimson;" (click)="cancel()">Cancel</button>
+  </div>
+  
+  </form>

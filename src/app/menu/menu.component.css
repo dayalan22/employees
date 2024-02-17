@@ -1,0 +1,31 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+.example-container {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.sidenavContent
+{
+  color:black;
+  background-color: white;
+}
+::ng-deep .custom-notification1{
+  --mdc-snackbar-container-color:green;
+  --mdc-snackbar-supporting-text-color:white;
+}
+
+.mat-elevation-z5{
+  position: relative;
+  z-index: 2;
+}
+h2{
+  text-align: center;
+}

@@ -1,0 +1,24 @@
+<mat-toolbar style="background-color:darkslateblue;" class="mat-elevation-z5">
+  <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+  <span>Employee Details</span>
+  <span class="example-spacer"></span>
+  <button mat-button routerLink="/login">Logout</button>
+</mat-toolbar>
+<mat-sidenav-container
+    class="example-container">
+  <mat-sidenav opened  #sidenav mode="side" style="background-color:darkslateblue" >
+    <mat-nav-list style="width: 150px;">
+      <a mat-list-item routerLink="/menu/dashboard">
+          <mat-icon>dashboard</mat-icon>&nbsp;<label>Dashboard</label>
+      </a>
+      <a mat-list-item routerLink="/menu/employeelist">
+          <mat-icon>people</mat-icon>&nbsp;<label>Employees</label>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenavContent">
+    <p></p>
+    <h2>Welcome To Menu Page</h2>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

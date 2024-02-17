@@ -1,0 +1,54 @@
+<mat-toolbar style="background-color: darkslateblue;">
+    <span class="example-spacer"></span>
+    <button mat-button style="background-color:none;" routerLink="/menu/employeelist">Back</button>
+</mat-toolbar>
+
+<mat-card class="fullWidth">
+    <mat-card class="formWidth">
+        <mat-card-header>
+            <div class="mat-header">Employee Form</div>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="createForm" class="example-form" >        
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput autocomplete="off" style="color:black" placeholder="name" formControlName="name1" required>
+                    <mat-error *ngIf="createForm.controls['name1'].errors?.['required']">name is required</mat-error>
+                    <mat-error *ngIf="createForm.controls['name1'].errors?.['pattern']">Use Alphabets Only</mat-error>
+                    <span *ngIf="duplicateName" style="font-size: small;color: red;">name is already existing</span>
+                </mat-form-field><br>
+                  
+           <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput autocomplete="off" style="color:black" placeholder="abc@example.com" formControlName="email1" required>
+                <mat-error *ngIf="createForm.controls['email1'].errors?.['required']">email is required</mat-error>
+                <mat-error *ngIf="createForm.controls['email1'].errors?.['pattern']">enter valid email</mat-error>   
+                <span *ngIf="duplicateMail" style="font-size: small;color: red;">email is already existing</span>
+            </mat-form-field><br>
+            
+            <mat-form-field>
+                <mat-label>Phone</mat-label>
+                <input matInput autocomplete="off" style="color:black" placeholder="phone" formControlName="phone1" required>
+                <mat-error *ngIf="createForm.controls['phone1'].errors?.['required']">phone is required</mat-error>
+                <mat-error *ngIf="createForm.controls['phone1'].errors?.['pattern']">enter numbers only</mat-error>   
+                <mat-error *ngIf="createForm.controls['phone1'].errors?.['minlength']">enter more than 5 characters</mat-error>
+                <mat-error *ngIf="createForm.controls['phone1'].errors?.['maxlength']">enter less than 11 characters</mat-error>
+            </mat-form-field><br>
+            
+            <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker" formControlName="dob1" style="color: black;"> 
+                <mat-label>DOB</mat-label>
+                <mat-datepicker-toggle matIconSuffix [for]="picker" style="color:black;"> </mat-datepicker-toggle>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="createForm.controls['dob1'].errors?.['required']">DOB is required
+                    <mat-error *ngIf="createForm.controls['dob1'].touched">please use calender icon</mat-error>
+                </mat-error>              
+              </mat-form-field>
+            <br><br>
+                <button mat-raised-button type="submit"  (click)="Onsave()" style="background-color:darkcyan; color:black ;width: 100%; font-weight: bold;">Submit</button>        
+            </form>       
+        </mat-card-content>
+    </mat-card>
+</mat-card>
+

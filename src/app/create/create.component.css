@@ -1,0 +1,52 @@
+.fullWidth{
+  width: 100%;
+  height: 581px;
+  background-color:whitesmoke;
+}
+
+.formWidth{
+margin-top: 4%;
+margin-left: 25%;
+width: 50%;
+background-color: white;
+}
+
+
+.example-spacer {
+    flex: 1 1 auto;  
+  }
+  mat-toolbar{
+    height: 60px;
+  }
+  mat-error{
+    font-size: small;
+    color: red;
+    
+  }
+
+  ::ng-deep .mdc-text-field:not(.mdc-text-field-disabled) .mdc-floating-label{
+    color:coral !important;
+    font-weight: 100px;
+  }
+  ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--outlined){
+    background-color:transparent !important;
+  }
+  ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disables) .mdc-line-ripple::before{
+  border-bottom-color:black !important;
+  }
+  ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disables) .mdc-line-ripple::after{
+    border-bottom-color:black !important;  
+  }
+  
+  mat-form-field{
+width: 100%;
+
+}
+
+mat-card-header{
+  margin-left: 40%;
+  font-size: 20px;
+  font-weight:500;
+
+}
+
