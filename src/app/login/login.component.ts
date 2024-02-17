@@ -42,7 +42,7 @@ export class LoginComponent{
       {
         if(this.userDetails[i]['email']==emailValue && this.userDetails[i]['password']==passwordValue)
         {
-          this._notify.success("Login Successfully");
+          this._notify.success("Login Successfully");          
           setTimeout(()=>{this.route.navigate(['/menu'])},1000);
           result=true;
           break;
