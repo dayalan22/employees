@@ -26,7 +26,6 @@ export class LoginComponent{
   constructor(private route : Router,public _notify : NotificationService, private _service : AuthserviceService)
   {
     this._service.getUsers().subscribe(data=>{this.userDetails=data});
-    console.log(this.userDetails);
   }
     emailFormControl = new FormControl('', [Validators.required]);
     passwordFormControl = new FormControl('',[Validators.required])
@@ -39,7 +38,7 @@ export class LoginComponent{
       const emailValue = this.emailFormControl.value;
       const passwordValue = this.passwordFormControl.value;
 
-      for(let i=0;i<this.userDetails.length ; i++)
+      for(let i=0;i<this.userDetails.length! ; i++)
       {
         if(this.userDetails[i]['email']==emailValue && this.userDetails[i]['password']==passwordValue)
         {
