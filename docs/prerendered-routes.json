@@ -1,0 +1,11 @@
+{
+  "routes": [
+    "/",
+    "/create",
+    "/login",
+    "/menu",
+    "/menu/dashboard",
+    "/menu/employeelist",
+    "/register"
+  ]
+}
