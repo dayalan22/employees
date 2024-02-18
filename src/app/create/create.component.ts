@@ -120,7 +120,7 @@ export class CreateComponent implements OnInit{
         this.maxVal="";
         this.arr=[];
         alert("Saved Successfully");
-        window.location.reload();
+        setTimeout(()=>{window.location.reload()},1000)
       }
     } 
   } 
